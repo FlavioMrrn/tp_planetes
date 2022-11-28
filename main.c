@@ -1,3 +1,11 @@
+/*
+TAYAN Jad, MORRONE Flavio
+TP planetes
+Date début: 28.11.2022
+Version:
+    0.1: 28.11.2022
+*/
+
 #include "gfx/gfx.h"
 #include "vec2/vec2.h"
 #include <stdio.h>
