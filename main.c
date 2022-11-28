@@ -1,56 +1,39 @@
-/*
-TAYAN Jad, MORRONE Flavio
-TP planetes
-Date début: 28.11.2022
-Version:
-    0.1: 28.11.2022
-*/
-
 #include "gfx/gfx.h"
 #include "vec2/vec2.h"
+#include "planet/planet.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
 
-#define SCREEN_WIDTH 1280
-#define SCREEN_HEIGHT 720
+#define SCREEN_WIDTH 1000
+#define SCREEN_HEIGHT 1000
 
-double rand_dbl() {
-    return 2.0 * ((double)rand()) / RAND_MAX - 0.5;
-}
-
-int main() {
+int main()
+{
     srand(time(NULL));
     struct gfx_context_t *ctxt =
-        gfx_create("Vec2 demo", SCREEN_WIDTH, SCREEN_HEIGHT);
-    if (!ctxt) {
+        gfx_create("Planetary system", SCREEN_WIDTH, SCREEN_HEIGHT);
+    if (!ctxt)
+    {
         fprintf(stderr, "Graphics initialization failed!\n");
         return EXIT_FAILURE;
     }
 
-    vec2 center   = vec2_create(0.0, 0.0);
-    double radius = 0.5;
-    for (int i = 0; i < 250000; i++) {
+    // TODO : create your system
 
-        vec2 r = vec2_create(rand_dbl(), rand_dbl());
-
-        // Draw pixel if in circle
-        if (vec2_norm(vec2_sub(r, center)) < radius) {
-            coordinates pixel =
-                vec2_to_coordinates(r, SCREEN_WIDTH, SCREEN_HEIGHT);
-            // Random color (not black)
-            uint32_t color = rand() % 0xFFFFFF;
-
-            gfx_putpixel(ctxt, pixel.column, pixel.row, color);
-        }
-    }
-
-    gfx_present(ctxt);
-    while (true) {
-        if (gfx_keypressed() == SDLK_ESCAPE) {
+    while (true)
+    {
+        gfx_present(ctxt);
+        // TODO : draw the current state of your system
+        // TODO : update your system
+        gfx_clear(ctxt, COLOR_BLACK);
+        if (gfx_keypressed() == SDLK_ESCAPE)
+        {
             break;
         }
     }
+
+    // TODO : Free your system
     gfx_destroy(ctxt);
     return EXIT_SUCCESS;
 }
