@@ -5,10 +5,11 @@
 #define M_SOLEIL 1.989e30
 
 // TODO : magic
-planet_t create_planet(double mass, vec2 pos){
+planet_t create_planet(double mass, vec2 pos, double dist_to_star){
     planet_t p;
     p.mass = mass;
     p.pos = pos;
+    d.dist_to_star = dist_to_star;
 };
 
 system_t create_system(planete_t star, uint32_t nb_planets, double delta_t){
