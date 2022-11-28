@@ -8,8 +8,18 @@
 #define SCREEN_WIDTH 1000
 #define SCREEN_HEIGHT 1000
 
-int main()
-{
+/*
+Etapes simulation systeme planetaire:
+    Créer une étoile au centre du domaine(soleil)
+    Ajoute le nombre de planetes que l'on veut
+    définir les conditions (vitesses ...)
+    Afficher
+        Afficher systemes
+        Calculer forces resultatantes / nouvelles positions
+        refresh
+        puis recommencer cette étapes
+*/
+int main() {
     srand(time(NULL));
     struct gfx_context_t *ctxt =
         gfx_create("Planetary system", SCREEN_WIDTH, SCREEN_HEIGHT);

@@ -6,6 +6,7 @@
 
 typedef struct _planet
 {
+    double dist_to_star;
     double mass;
     vec2 pos;      // x(t)
     vec2 prec_pos; // x(t - dt)
@@ -16,11 +17,12 @@ typedef struct _system
     planet_t star;       // ex. The sun
     uint32_t nb_planets; // The number of orbiting planets
     planet_t *planets;   // An array of orbiting planets
+    double delta_t;
 } system_t;
 
 // Those function are not mandatory to implement,
 // it's rather a hint of what you should have.
-planet_t create_planet(double mass, vec2 pos);
+planet_t create_planet(double mass, vec2 pos, double dist_to_star);
 system_t create_system(double delta_t);
 void force_applied_self(planet_t B);
 void show_system(struct gfx_context_t *ctxt, system_t *system);
