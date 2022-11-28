@@ -16,6 +16,7 @@ typedef struct _system
     planet_t star;       // ex. The sun
     uint32_t nb_planets; // The number of orbiting planets
     planet_t *planets;   // An array of orbiting planets
+    double delta_t;
 } system_t;
 
 // Those function are not mandatory to implement,
