@@ -19,6 +19,17 @@ double rand_dbl() {
     return 2.0 * ((double)rand()) / RAND_MAX - 0.5;
 }
 
+/*
+Etapes simulation systeme planetaire:
+    Créer une étoile au centre du domaine(soleil)
+    Ajoute le nombre de planetes que l'on veut
+    définir les conditions (vitesses ...)
+    Afficher
+        Afficher systemes
+        Calculer forces resultatantes / nouvelles positions
+        refresh
+        puis recommencer cette étapes
+*/
 int main() {
     srand(time(NULL));
     struct gfx_context_t *ctxt =
