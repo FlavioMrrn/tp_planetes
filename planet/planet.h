@@ -22,6 +22,7 @@ typedef struct _system
 // it's rather a hint of what you should have.
 planet_t create_planet(double mass, vec2 pos);
 system_t create_system(double delta_t);
+void force_applied_self(planet_t B);
 void show_system(struct gfx_context_t *ctxt, system_t *system);
 void update_system(system_t *system, double delta_t);
 void free_system(system_t *system);
