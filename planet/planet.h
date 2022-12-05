@@ -23,7 +23,7 @@ typedef struct _system
 // Those function are not mandatory to implement,
 // it's rather a hint of what you should have.
 planet_t create_planet(double mass, vec2 pos, double dist_to_star);
-system_t create_system(double delta_t);
+system_t create_system(planet_t star, uint32_t nb_planets, double delta_t);
 void show_system(struct gfx_context_t *ctxt, system_t *system);
 void update_system(system_t *system, double delta_t);
 void free_system(system_t *system);
