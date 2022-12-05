@@ -1,4 +1,5 @@
 #include "planet.h"
+#include "../system/system.h"
 #include <stdlib.h>
 
 #define G 6.67e-11
@@ -6,12 +7,20 @@
 
 // TODO : magic
 
+vec2 force_applied_self(planet_t B, system_t s){
+    for (int i = 0; i < s.nb_planets; i++)
+    {
+        
+    }
+    
+}
+
+
 void force_applied_b_on_a(planet_t A,planet_t B, planet_t Star){
     vec2 Rab = Star.pos;
     vec2 AB = sub(&B.pos, &A.pos);
     double distanceBetweenAAndB = norme(&AB);
     vec2 Fba = multiplication(&AB, G * ((A.mass * B.mass) / pow(distanceBetweenAAndB, 3)));
-
     return Fba;
 }
 planet_t create_planet(double mass, vec2 pos, double dist_to_star){
@@ -19,12 +28,4 @@ planet_t create_planet(double mass, vec2 pos, double dist_to_star){
     p.mass = mass;
     p.pos = pos;
     p.dist_to_star = dist_to_star;
-};
-
-system_t create_system(planet_t star, uint32_t nb_planets, double delta_t){
-    system_t s;
-    s.nb_planets = nb_planets;
-    s.planets = malloc(nb_planets * sizeof(planet_t));
-    s.star = star;
-    s.delta_t = delta_t;
 };
