@@ -1,0 +1,13 @@
+{
+    "files.associations": {
+        "gfx.h": "c",
+        "stdint.h": "c",
+        "planet.h": "c",
+        "sdl.h": "c",
+        "sdl_main.h": "c",
+        "sdl_stdinc.h": "c",
+        "sdl_config.h": "c",
+        "_real_sdl_config.h": "c",
+        "sdl_platform.h": "c"
+    }
+}
