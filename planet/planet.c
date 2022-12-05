@@ -8,9 +8,11 @@
 
 void force_applied_b_on_a(planet_t A,planet_t B, planet_t Star){
     vec2 Rab = Star.pos;
-    vec2 AB = ;
-    double distanceBetweenAAndB = sqrt( pow((B.pos.x - A.pos.x), 2) + pow((B.pos.y - A.pos.y), 2));
-    vec2 Fba = G * ((A.mass * B.mass) / pow(distanceBetweenAAndB, 3)) * distanceBetweenAAndB;
+    vec2 AB = sub(&B.pos, &A.pos);
+    double distanceBetweenAAndB = norme(&AB);
+    vec2 Fba = multiplication(&AB, G * ((A.mass * B.mass) / pow(distanceBetweenAAndB, 3)));
+
+    return Fba;
 }
 planet_t create_planet(double mass, vec2 pos, double dist_to_star){
     planet_t p;
