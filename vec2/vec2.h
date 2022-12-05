@@ -1,5 +1,4 @@
-/*
-addition vec2s
+/*addition vec2s
 soustraction
 produit scalaire
 norme
