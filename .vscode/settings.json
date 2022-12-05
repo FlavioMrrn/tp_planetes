@@ -1,5 +1,4 @@
 {
-<<<<<<< HEAD
     "files.associations": {
         "gfx.h": "c",
         "stdint.h": "c",
@@ -10,8 +9,6 @@
         "sdl_config.h": "c",
         "_real_sdl_config.h": "c",
         "sdl_platform.h": "c"
-    }
-=======
+    },
     "C_Cpp.errorSquiggles": "Enabled"
->>>>>>> 75aa8a52ca7f1311eb911feaec8ab52b3631618f
 }

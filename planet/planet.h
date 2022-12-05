@@ -4,6 +4,13 @@
 #include "../vec2/vec2.h"
 #include "../gfx/gfx.h"
 
+typedef struct _orbite
+{
+    double demi_grand_axe;
+    double demi_petit_axe;
+    double excentricité;
+} orbite_t;
+
 typedef struct _planet
 {
     double dist_to_star;
