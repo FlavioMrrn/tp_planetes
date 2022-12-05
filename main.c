@@ -1,7 +1,7 @@
 #include "gfx/gfx.h"
 #include "vec2/vec2.h"
 #include "planet/planet.h"
-#include <stdio.h>
+#include <stdio.h>  
 #include <stdlib.h>
 #include <time.h>
 
@@ -35,7 +35,9 @@ int main() {
     {
         gfx_present(ctxt);
         // TODO : draw the current state of your system
+
         // TODO : update your system
+        
         gfx_clear(ctxt, COLOR_BLACK);
         if (gfx_keypressed() == SDLK_ESCAPE)
         {
