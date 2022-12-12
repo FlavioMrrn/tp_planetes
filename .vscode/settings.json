@@ -8,7 +8,8 @@
         "sdl_stdinc.h": "c",
         "sdl_config.h": "c",
         "_real_sdl_config.h": "c",
-        "sdl_platform.h": "c"
+        "sdl_platform.h": "c",
+        "system.h": "c"
     },
     "C_Cpp.errorSquiggles": "Enabled"
 }

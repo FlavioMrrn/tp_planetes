@@ -36,5 +36,7 @@ extern struct gfx_context_t *gfx_create(char *text, uint32_t width, uint32_t hei
 extern void gfx_destroy(struct gfx_context_t *ctxt);
 extern void gfx_present(struct gfx_context_t *ctxt);
 extern SDL_Keycode gfx_keypressed();
+void draw_full_circle(struct gfx_context_t *ctxt, uint32_t c_column, uint32_t c_row, uint32_t r, uint32_t color);
+
 
 #endif
