@@ -7,17 +7,18 @@
 
 // TODO : magic
 
-vec2 force_applied_self(planet_t B, system_t s){
+vec2 force_applied_self(planet_t *p, system_t s){
+    vec2 force_res = {0,0};
     for (int i = 0; i < s.nb_planets; i++)
     {
-        
+        vec2 forcei = force_applied_b_on_a(*p, s.planets[i]);
+        force_res = add(&force_res, &forcei);
     }
-    
+    return force_res;
 }
 
 
-void force_applied_b_on_a(planet_t A,planet_t B, planet_t Star){
-    vec2 Rab = Star.pos;
+vec2 force_applied_b_on_a(planet_t A,planet_t B){
     vec2 AB = sub(&B.pos, &A.pos);
     double distanceBetweenAAndB = norme(&AB);
     vec2 Fba = multiplication(&AB, G * ((A.mass * B.mass) / pow(distanceBetweenAAndB, 3)));

@@ -15,9 +15,7 @@ typedef struct _planet
 // Those function are not mandatory to implement,
 // it's rather a hint of what you should have.
 planet_t create_planet(double mass, vec2 pos, double dist_to_star);
-void force_applied_self(planet_t *B, system_t *system);
-void show_system(struct gfx_context_t *ctxt, system_t *system);
+vec2 force_applied_self(planet_t *p, system_t system);
 void update_system(system_t *system, double delta_t);
-void free_system(system_t *system);
-void force_applied_b_on_a(planet_t A,planet_t B, planet_t Star);
+vec2 force_applied_b_on_a(planet_t A,planet_t B);
 #endif
