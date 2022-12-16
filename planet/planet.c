@@ -54,6 +54,8 @@ vec2 planet_position(planet_t A, double delta_t, system_t p_sys){
     return nextPosition;
 }
 
+vec2
+
 planet_t create_planet(double mass, vec2 pos, double dist_to_star)
 {
     planet_t p;
