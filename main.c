@@ -81,6 +81,7 @@ Etapes simulation systeme planetaire:
         refresh
         puis recommencer cette étapes
 */
+
 int main() {
     srand(time(NULL));
     struct gfx_context_t *ctxt =
