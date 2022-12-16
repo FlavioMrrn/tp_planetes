@@ -6,7 +6,7 @@
 #include <stdlib.h>
 #include <time.h>
 
-#define SCREEN_WIDTH 1000
+##define SCREEN_WIDTH 1000
 #define SCREEN_HEIGHT 1000
 
 #define M_SOLEIL 1.989e30
@@ -93,17 +93,59 @@ int main() {
     }
 
     // TODO : create your system
-     planet_t planetes_systèmes[8];
+    // Ajout des planètes aux systèmes solaires
+     planet_t planetes_systèmes[7];
+
      vec2 position_earth;
      position_earth.x = PERIHELIE_EARTH;
      position_earth.y = 0;
-     planet_t earth = create_planet(MASS_EARTH,position_earth,)
-     //planetes_systèmes[0] =
+     orbite_t orbite_terre;
+     orbite_terre.demi_grand_axe = DEMI_GRAND_AXE_EARTH;
+     orbite_terre.excentricite = EXCENTRICITE_EARTH;
+     orbite_terre.perihelie = PERIHELIE_EARTH;
+     planet_t earth = create_planet(MASS_EARTH,position_earth, COLOR_BLUE, orbite_terre, 20);
+     planetes_systèmes[0] = earth;
+
+     vec2 position_venus;
+     position_venus.x = PERIHELIE_VENUS;
+     position_venus.y = 0;
+     orbite_t orbite_venus;
+     orbite_venus.demi_grand_axe = DEMI_GRAND_AXE_VENUS;
+     orbite_venus.excentricite = EXCENTRICITE_VENUS;
+     orbite_venus.perihelie = PERIHELIE_VENUS;
+     planet_t venus = create_planet(MASS_VENUS,position_venus, COLOR_WHITE, orbite_venus, 24);
+     planetes_systèmes[1] = venus;
+
+     vec2 position_mercure;
+     position_mercure.x = PERIHELIE_MERCURE;
+     position_mercure.y = 0;
+     orbite_t orbite_mercure;
+     orbite_mercure.demi_grand_axe = DEMI_GRAND_AXE_MERCURE;
+     orbite_mercure.excentricite = EXCENTRICITE_MERCURE;
+     orbite_mercure.perihelie = PERIHELIE_MERCURE;
+     planet_t mercure = create_planet(MASS_MERCURE,position_mercure, COLOR_WHITE, orbite_mercure, 32);
+     planetes_systèmes[2] = mercure;
+
+     vec2 position_mars;
+     position_mars.x = PERIHELIE_MARS;
+     position_mars.y = 0;
+     orbite_t orbite_mars;
+     orbite_mars.demi_grand_axe = DEMI_GRAND_AXE_MARS;
+     orbite_mars.excentricite = EXCENTRICITE_MARS;
+     orbite_mars.perihelie = PERIHELIE_MARS;
+     planet_t mars = create_planet(MASS_MARS,position_mars, COLOR_WHITE, orbite_mars, 27);
+     planetes_systèmes[3] = mars;
 
      planet_t sun;
-     sun.dist_to_star = 0;
      sun.mass = M_SOLEIL;
-     system_t systeme_maison = create_system(sun, 8, , 10);
+     sun.color = COLOR_YELLOW;
+     sun.size = 40;
+     vec2 position_soleil;
+     position_soleil.x = 0;
+     position_soleil.y = 0;
+     sun.pos = position_soleil; 
+
+     system_t systeme_maison = create_system(sun, 4,planetes_systèmes,4000);
 
 
     while (true)

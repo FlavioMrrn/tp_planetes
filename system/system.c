@@ -50,8 +50,15 @@ system_t create_system(planet_t star, uint32_t nb_planets,planet_t planetes[] ,d
     return s;
 };
 
+
+
+
 void show_system(struct gfx_context_t *ctxt, system_t *system){
-    draw_full_circle(ctxt,200,200,10,COLOR_WHITE);
+    for (size_t i = 0; i < system->nb_planets; i++)
+    {
+        //draw_full_circle(ctxt,)
+    }
+    
 }
 
 void update_system(system_t *system, double delta_t){
