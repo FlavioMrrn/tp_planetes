@@ -17,7 +17,9 @@ typedef struct _planet
     double mass;
     vec2 pos;      // x(t)
     vec2 prec_pos; // x(t - dt)
-    vec2 vitesse;
+    double vitesse;
+    vec2 acceleration;
+    orbite_t orbite_planet;
 } planet_t;
 
 // Those function are not mandatory to implement,
