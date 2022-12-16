@@ -1,12 +1,15 @@
 #include "gfx/gfx.h"
 #include "vec2/vec2.h"
 #include "planet/planet.h"
+#include "system/system.h"
 #include <stdio.h>  
 #include <stdlib.h>
 #include <time.h>
 
 #define SCREEN_WIDTH 1000
 #define SCREEN_HEIGHT 1000
+
+#define M_SOLEIL 1.989e30
 
 /*
 Etapes simulation systeme planetaire:
@@ -30,15 +33,20 @@ int main() {
     }
 
     // TODO : create your system
+     planet_t sun;
+     sun.dist_to_star = 0;
+     sun.mass = M_SOLEIL;
+     system_t systeme_maison = create_system(sun, 1, 10);
+
 
     while (true)
     {
         gfx_present(ctxt);
         // TODO : draw the current state of your system
-
+        show_system(ctxt, &systeme_maison);
         // TODO : update your system
         
-        gfx_clear(ctxt, COLOR_BLACK);
+        //gfx_clear(ctxt, COLOR_BLACK);
         if (gfx_keypressed() == SDLK_ESCAPE)
         {
             break;

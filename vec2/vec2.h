@@ -1,3 +1,5 @@
+#ifndef _VEC_2_
+#define _VEC_2_
 /*addition vec2s
 soustraction
 produit scalaire
@@ -18,3 +20,5 @@ double dot(vec2 *v1, vec2 *v2);
 double norme(vec2 *v1);
 vec2 multiplication(vec2 *v1, double scalaire);
 vec2 normalisation(vec2 *v1);
+
+#endif

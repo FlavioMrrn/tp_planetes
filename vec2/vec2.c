@@ -17,7 +17,7 @@ double dot(vec2 *v1, vec2 *v2){
 double norme(vec2 *v1){
     return sqrt((v1->x * v1->x) + (v1->y * v1->y));
 }
-vec2 mulitplication(vec2 *v1, double scalaire){
+vec2 multiplication(vec2 *v1, double scalaire){
     vec2 v2 = {v1->x * scalaire, v2.y * scalaire};
 }
 vec2 normalisation(vec2 *v1){
