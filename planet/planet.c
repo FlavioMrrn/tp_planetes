@@ -54,11 +54,12 @@ vec2 planet_position(planet_t A, double delta_t, system_t p_sys){
     return nextPosition;
 }
 
-planet_t create_planet(double mass, vec2 pos, double dist_to_star)
+planet_t create_planet(double mass, vec2 pos, vec2 prec_pos, int32_t color, vec2 acceleration, orbite_t orbite)
 {
     planet_t p;
     p.mass = mass;
+    p.prec_pos = prec_pos;
     p.pos = pos;
-    p.dist_to_star = dist_to_star;
-    p.
+    p.color = color;
+    p.orbite_planet = orbite;
 };
