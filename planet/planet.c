@@ -21,6 +21,14 @@ vec2 force_applied_self(planet_t *A, system_t *s)
     }
 }
 
+vec2 initial_planet_position(planet_t A, system_t SysA){
+    vec2 r_perp;
+    r_perp.x = -A.pos.y;
+    r_perp.y = A.pos.x;
+    vec2 rp_rpn = multiplication(&r_perp, 1/norme(&r_perp));
+    vec2 velocity_at_t_0 = multiplication(&rp_rpn,sqrt(SysA.star.mass * G * (1+    A.orbite_planet.excentricite) / A.orbite_planet.demi_grand_axe * (1-A.orbite_planet.excentricite)));
+}
+
 vec2 force_applied_b_on_a(planet_t A, planet_t B, planet_t Star)
 {
     vec2 Rab = Star.pos;
