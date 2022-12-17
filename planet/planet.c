@@ -8,16 +8,24 @@
 
 // TODO : magic
 
+/// @brief Formule de force de b sur a
+/// @param A 
+/// @param B 
+/// @return 
 vec2 force_applied_b_on_a(planet_t A, planet_t B)
 {
-    vec2 AB = sub(&B.pos, &A.pos);
+    //printf("a = %lf, %lf \n", A.pos.x, A.pos.y);
     //printf("b = %lf, %lf \n", B.pos.x, B.pos.y);
+
+    vec2 AB = sub(&B.pos, &A.pos);
+
 
     double distanceBetweenAAndB = norme(&AB);
     double masseR = A.mass * B.mass;
     double powNorm = pow(distanceBetweenAAndB, 3);
     vec2 Fba = multiplication(&AB, G * (masseR / powNorm));
-    printf("fba = %lf, %lf \n", Fba.x, Fba.y);
+
+    //printf("fba = %lf, %lf \n", Fba.x, Fba.y);
 
 
     

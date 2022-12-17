@@ -14,60 +14,31 @@
 #define SIZE_SOLEIL 50
 
 #define EXCENTRICITE_MERCURE 0.20563069
-#define PERIHELIE_MERCURE 46001009
-#define DEMI_GRAND_AXE_MERCURE 57894375.961
+#define PERIHELIE_MERCURE 4.60012e10
+#define DEMI_GRAND_AXE_MERCURE 5.790905e10  
 #define MASS_MERCURE 3.3011e23
 // 2439700 meters
 #define SIZE_MERCURE 10
 
-
-
 #define EXCENTRICITE_VENUS 0.00677323 
-#define PERIHELIE_VENUS 107476170
-#define DEMI_GRAND_AXE_VENUS 108159260.52
+#define PERIHELIE_VENUS 1.0747617e11
+#define DEMI_GRAND_AXE_VENUS 1.082095e11
 #define MASS_VENUS 4.8675E24
 #define SIZE_VENUS 15
 
 
 #define EXCENTRICITE_EARTH 0.01671022 
-#define PERIHELIE_EARTH 147098291
-#define DEMI_GRAND_AXE_EARTH 149597870.7
+#define PERIHELIE_EARTH 1.47098291e11
+#define DEMI_GRAND_AXE_EARTH 1.495978875e11
 #define MASS_EARTH 5.97217e24
-#define SIE_HEARTH 
+#define SIZE_EARTH 
 
 #define EXCENTRICITE_MARS 0.09341233 
-#define PERIHELIE_MARS 206655215
-#define DEMI_GRAND_AXE_MARS 227987154.95
+#define PERIHELIE_MARS 2.06655215e11
+#define DEMI_GRAND_AXE_MARS 2.27944e11
 #define MASS_MARS 6.4171e23
 #define SIZE_MARS 12
 
-
-#define EXCENTRICITE_JUPITER 0.04839266
-#define PERIHELIE_JUPITER 740679835
-#define DEMI_GRAND_AXE_JUPITER 778567158.27
-#define MASS_JUPITER 1.8982e27
-#define SIZE_JUPITER 30
-
-
-#define EXCENTRICITE_SATURN 0.05415060
-#define PERIHELIE_SATURN 1349823615
-#define DEMI_GRAND_AXE_SATURN 1433536555.8
-#define MASS_SATURN 5.6834e26
-#define SIZE_SATURN 25
-
-
-#define EXCENTRICITE_URANUS 0.04716771 
-#define PERIHELIE_URANUS 2734998229
-#define DEMI_GRAND_AXE_URANUS 2875031718.26
-#define MASS_URANUS 8.6810e25
-#define SIZE_URANUS 18
-
-
-#define EXCENTRICITE_NEPTUNE 0.00858587
-#define PERIHELIE_NEPTUNE 4459753056
-#define DEMI_GRAND_AXE_NEPTUNE 4504391886.78
-#define MASS_NEPTUNE 1.02413e26
-#define SIZE_NEPTUNE 17
 
 
 /*
@@ -146,11 +117,14 @@ int main() {
      position_soleil.y = 0;
      sun.pos = position_soleil; 
 
-     system_t systeme_maison = create_system(sun, 4,planetes_systemes,4000);
+     system_t systeme_maison = create_system(sun, 4,planetes_systemes,1);
 
     for (int i = 0; i < systeme_maison.nb_planets; i++)
     {
-        systeme_maison.planets[i].pos = initial_planet_position(systeme_maison.planets[i], systeme_maison);
+        systeme_maison.planets[i].pos = initial_planet_position(&(systeme_maison.planets[i]), &systeme_maison);
+
+        coordinates e = scale_planets_to_screen_coordinate(systeme_maison.planets[i],DEMI_GRAND_AXE_MARS);
+        printf("posx -> %lf,  posy %lf, pixx %d, pixy %d \n", systeme_maison.planets[i].pos.x, systeme_maison.planets[i].pos.y, e.column, e.row);
     }
     
 
@@ -161,7 +135,7 @@ int main() {
         // TODO : draw the current state of your system
         show_system(ctxt, &systeme_maison);
         // TODO : update your system
-        //update_system(&systeme_maison,4000);
+        update_system(&systeme_maison,1);
         
         //gfx_clear(ctxt, COLOR_BLACK);
         if (gfx_keypressed() == SDLK_ESCAPE)
