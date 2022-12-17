@@ -70,7 +70,7 @@ void show_system(struct gfx_context_t *ctxt, system_t *system){
     for (int i = 0; i < system->nb_planets; i++)
     {
         coordinates coord_p = scale_planets_to_screen_coordinate(system->planets[i],DEMI_GRAND_AXE_MARS);
-        printf("x = %lf, y =  %lf, mass = %lf, i = %d \n",  system->planets[i].pos.x, system->planets[i].pos.y, system->planets[i].mass, i);
+        //printf("x = %lf, y =  %lf, mass = %lf, i = %d \n",  system->planets[i].pos.x, system->planets[i].pos.y, system->planets[i].mass, i);
         draw_full_circle(ctxt,coord_p.column,coord_p.row,system->planets[i].size,system->planets[i].color);
     }
     
@@ -85,6 +85,7 @@ vec2 force_applied_self(planet_t *A, system_t *s)
         if (A != &s->planets[i])
         {
             vec2 force = force_applied_b_on_a(*A, s->planets[i], s->star);
+            printf("force ajout += %lf, %lf \n", force.x, force.y);
             all_force = add(&all_force, &force);
         }
     }
@@ -111,6 +112,7 @@ vec2 planet_position(planet_t A, double delta_t, system_t p_sys){
 
     //Calcule la force appliqué sur une planète ()
     vec2 force_applied_on_planet = force_applied_self(&A, &p_sys);
+    //printf("planete = x -> %lf, y -> %lf \n", force_applied_on_planet.x, force_applied_on_planet.y);
     //Calcule l'accélération de la planète soit => accéléraiton = Force/masse 
     A.acceleration = multiplication(&force_applied_on_planet,1/A.mass);
 
@@ -127,7 +129,13 @@ vec2 planet_position(planet_t A, double delta_t, system_t p_sys){
 }
 
 void update_system(system_t *system, double delta_t){
-    
+
+    for (int i = 0; i < system->nb_planets; i++)
+    {
+        vec2 updated_pos = planet_position(system->planets[i], delta_t, *system);
+        system->planets[i].prec_pos = system->planets[i].pos;
+        system->planets[i].pos = updated_pos; 
+    }
 }
 
 void free_system(system_t *system){
