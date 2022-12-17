@@ -67,3 +67,11 @@ planet_t create_planet(double mass, vec2 pos, int32_t color, orbite_t orbite, ui
     p.orbite_planet = orbite;
     p.size = size;
 };
+
+coordinates scale_planets_to_screen_coordinate(planet_t planet, double sma) {
+    //110% du demi grand axe (semi major axis) de la planete du plus loin
+    double rs = (sma / 100) * 110;
+    //divison de la position par rs pour mettre à l'échelle.
+    planet.pos = division(&planet.pos, rs);
+    return vec2_to_coordinates(planet.pos, SCREEN_WIDTH, SCREEN_HEIGHT);
+}
