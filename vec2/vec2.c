@@ -27,7 +27,7 @@ vec2 multiplication(vec2 *v1, double scalaire){
 }
 
 vec2 division(vec2 *v1, double scalaire){
-    vec2 v2 = {v1->x * scalaire, v1->y*scalaire};
+    vec2 v2 = {v1->x / scalaire, v1->y / scalaire};
     return v2;
 }
 
