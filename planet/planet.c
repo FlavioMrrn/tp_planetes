@@ -88,4 +88,4 @@ coordinates scale_planets_to_screen_coordinate(planet_t planet, double sma) {
     //divison de la position par rs pour mettre à l'échelle.
     planet.pos = division(&planet.pos, rs);
     return vec2_to_coordinates(planet.pos, SCREEN_WIDTH, SCREEN_HEIGHT);
-}
+}   
