@@ -22,7 +22,7 @@ double norme(vec2 *v1){
 }
 
 vec2 multiplication(vec2 *v1, double scalaire){
-    vec2 v2 = {v1->x * scalaire, v2.y * scalaire};
+    vec2 v2 = {v1->x * scalaire, v1->y * scalaire};
     return v2;
 }
 
@@ -34,6 +34,7 @@ vec2 division(vec2 *v1, double scalaire){
 vec2 normalisation(vec2 *v1){
     double normev1 = norme(v1);
     vec2 v2 = {v1->x / normev1, v1->y / normev1};
+    return v2;
 }
 
 /// @brief Calcul les coordonnées sur l'écran d'un vecteur donné (x et y [-1;1]).

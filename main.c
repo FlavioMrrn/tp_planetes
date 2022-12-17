@@ -53,7 +53,7 @@
 #define PERIHELIE_SATURN 1349823615
 #define DEMI_GRAND_AXE_SATURN 1433536555.8
 #define MASS_SATURN 5.6834e26
-#define SIZE_MERCURE 25
+#define SIZE_SATURN 25
 
 
 #define EXCENTRICITE_URANUS 0.04716771 
@@ -67,7 +67,7 @@
 #define PERIHELIE_NEPTUNE 4459753056
 #define DEMI_GRAND_AXE_NEPTUNE 4504391886.78
 #define MASS_NEPTUNE 1.02413e26
-#define SIZE_URANUS 17
+#define SIZE_NEPTUNE 17
 
 
 /*
@@ -94,8 +94,8 @@ int main() {
 
     // TODO : create your system
     // Ajout des planètes aux systèmes solaires
-     planet_t planetes_systèmes[7];
-
+     planet_t planetes_systemes[4];
+    
      vec2 position_earth;
      position_earth.x = PERIHELIE_EARTH;
      position_earth.y = 0;
@@ -104,7 +104,8 @@ int main() {
      orbite_terre.excentricite = EXCENTRICITE_EARTH;
      orbite_terre.perihelie = PERIHELIE_EARTH;
      planet_t earth = create_planet(MASS_EARTH,position_earth, COLOR_BLUE, orbite_terre, 20);
-     planetes_systèmes[0] = earth;
+     planetes_systemes[0] = earth;
+     
 
      vec2 position_venus;
      position_venus.x = PERIHELIE_VENUS;
@@ -113,8 +114,8 @@ int main() {
      orbite_venus.demi_grand_axe = DEMI_GRAND_AXE_VENUS;
      orbite_venus.excentricite = EXCENTRICITE_VENUS;
      orbite_venus.perihelie = PERIHELIE_VENUS;
-     planet_t venus = create_planet(MASS_VENUS,position_venus, COLOR_WHITE, orbite_venus, 24);
-     planetes_systèmes[1] = venus;
+     planet_t venus = create_planet(MASS_VENUS,position_venus, COLOR_GREEN, orbite_venus, 24);
+     planetes_systemes[1] = venus;
 
      vec2 position_mercure;
      position_mercure.x = PERIHELIE_MERCURE;
@@ -123,8 +124,8 @@ int main() {
      orbite_mercure.demi_grand_axe = DEMI_GRAND_AXE_MERCURE;
      orbite_mercure.excentricite = EXCENTRICITE_MERCURE;
      orbite_mercure.perihelie = PERIHELIE_MERCURE;
-     planet_t mercure = create_planet(MASS_MERCURE,position_mercure, COLOR_WHITE, orbite_mercure, 32);
-     planetes_systèmes[2] = mercure;
+     planet_t mercure = create_planet(MASS_MERCURE,position_mercure, COLOR_RED, orbite_mercure, 32);
+     planetes_systemes[2] = mercure;
 
      vec2 position_mars;
      position_mars.x = PERIHELIE_MARS;
@@ -134,7 +135,7 @@ int main() {
      orbite_mars.excentricite = EXCENTRICITE_MARS;
      orbite_mars.perihelie = PERIHELIE_MARS;
      planet_t mars = create_planet(MASS_MARS,position_mars, COLOR_WHITE, orbite_mars, 27);
-     planetes_systèmes[3] = mars;
+     planetes_systemes[3] = mars;
 
      planet_t sun;
      sun.mass = M_SOLEIL;
@@ -145,15 +146,18 @@ int main() {
      position_soleil.y = 0;
      sun.pos = position_soleil; 
 
-     system_t systeme_maison = create_system(sun, 4,planetes_systèmes,4000);
+     system_t systeme_maison = create_system(sun, 4,planetes_systemes,4000);
 
 
     while (true)
     {
+        
         gfx_present(ctxt);
         // TODO : draw the current state of your system
         show_system(ctxt, &systeme_maison);
+        //draw_full_circle(ctxt, 0, 0, 30, COLOR_YELLOW);
         // TODO : update your system
+        
         
         //gfx_clear(ctxt, COLOR_BLACK);
         if (gfx_keypressed() == SDLK_ESCAPE)
