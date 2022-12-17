@@ -19,6 +19,8 @@ vec2 force_applied_self(planet_t *A, system_t *s)
             all_force = add(&all_force, &force);
         }
     }
+
+    return all_force;
 }
 
 vec2 initial_planet_position(planet_t A, system_t SysA){
@@ -27,6 +29,8 @@ vec2 initial_planet_position(planet_t A, system_t SysA){
     r_perp.y = A.pos.x;
     vec2 rp_rpn = multiplication(&r_perp, 1/ngorme(&r_perp));
     vec2 velocity_at_t_0 = multiplication(&rp_rpn,sqrt(SysA.star.mass * G * (1+    A.orbite_planet.excentricite) / A.orbite_planet.demi_grand_axe * (1-A.orbite_planet.excentricite)));
+
+    return velocity_at_t_0;
 }
 
 vec2 force_applied_b_on_a(planet_t A, planet_t B, planet_t Star)
@@ -74,6 +78,8 @@ planet_t create_planet(double mass, vec2 pos, int32_t color, orbite_t orbite, ui
     p.color = color;
     p.orbite_planet = orbite;
     p.size = size;
+    
+    return p;
 };
 
 coordinates scale_planets_to_screen_coordinate(planet_t planet, double sma) {

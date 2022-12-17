@@ -27,4 +27,6 @@ typedef struct _planet
 planet_t create_planet(double mass, vec2 pos, int32_t color, orbite_t orbite, uint32_t size);
 
 vec2 force_applied_b_on_a(planet_t A,planet_t B, planet_t Star);
+
+
 #endif
