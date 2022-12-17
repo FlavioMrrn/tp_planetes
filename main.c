@@ -6,7 +6,7 @@
 #include <stdlib.h>
 #include <time.h>
 
-##define SCREEN_WIDTH 1000
+#define SCREEN_WIDTH 1000
 #define SCREEN_HEIGHT 1000
 
 #define M_SOLEIL 1.989e30
