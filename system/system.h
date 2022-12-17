@@ -34,6 +34,7 @@
 #define DEMI_GRAND_AXE_NEPTUNE 4504391886.78
 
 #include "../planet/planet.h"
+#include "../vec2/vec2.h"
 
 typedef struct _system
 {
@@ -49,4 +50,9 @@ vec2 force_applied_self(planet_t *A, system_t *system);
 void show_system(struct gfx_context_t *ctxt, system_t *system);
 void update_system(system_t *system, double delta_t);
 void free_system(system_t *system);
+coordinates scale_planets_to_screen_coordinate(planet_t planet, double sma);
+vec2 force_applied_self(planet_t *A, system_t *s);
+vec2 initial_planet_position(planet_t A, system_t SysA);
+vec2 planet_position(planet_t A, double delta_t, system_t p_sys);
+
 #endif
