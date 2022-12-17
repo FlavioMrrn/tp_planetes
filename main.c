@@ -155,11 +155,10 @@ int main() {
         gfx_present(ctxt);
         // TODO : draw the current state of your system
         show_system(ctxt, &systeme_maison);
-        //draw_full_circle(ctxt, 0, 0, 30, COLOR_YELLOW);
         // TODO : update your system
+        update_system(&systeme_maison,4000);
         
-        
-        //gfx_clear(ctxt, COLOR_BLACK);
+        gfx_clear(ctxt, COLOR_BLACK);
         if (gfx_keypressed() == SDLK_ESCAPE)
         {
             break;
