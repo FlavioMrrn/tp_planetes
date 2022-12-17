@@ -122,7 +122,7 @@ int main() {
     for (int i = 0; i < systeme_maison.nb_planets; i++)
     {
         systeme_maison.planets[i].pos = initial_planet_position(&(systeme_maison.planets[i]), &systeme_maison);
-
+        
         coordinates e = scale_planets_to_screen_coordinate(systeme_maison.planets[i],DEMI_GRAND_AXE_MARS);
         printf("posx -> %lf,  posy %lf, pixx %d, pixy %d \n", systeme_maison.planets[i].pos.x, systeme_maison.planets[i].pos.y, e.column, e.row);
     }
@@ -135,7 +135,7 @@ int main() {
         // TODO : draw the current state of your system
         show_system(ctxt, &systeme_maison);
         // TODO : update your system
-        update_system(&systeme_maison,1);
+        //update_system(&systeme_maison,1);
         
         //gfx_clear(ctxt, COLOR_BLACK);
         if (gfx_keypressed() == SDLK_ESCAPE)

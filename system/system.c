@@ -99,7 +99,7 @@ vec2 initial_planet_position(planet_t *A, system_t *SysA)
 
      
     vec2 vp0 = multiplication(&rp_rpn, sqrtdiv);
-
+    printf("vpx %lf, vpy %lf \n", vp0.x, vp0.y);
     //vec2 velocity_at_t_0 = multiplication(&rp_rpn, sqrt(SysA->star.mass * G * (1 + A->orbite_planet.excentricite) / A->orbite_planet.demi_grand_axe * (1 - A->orbite_planet.excentricite)));
 
     vec2 tmp1 = multiplication(&vp0, SysA->delta_t);
@@ -110,6 +110,9 @@ vec2 initial_planet_position(planet_t *A, system_t *SysA)
 
     //Acceleration
     vec2 a = division(&force_self, A->mass);
+
+    printf("accel x %lf , y %lf \n", a.x, a.y);
+
     vec2 tmp3 = multiplication(&a, (pow(SysA->delta_t, 2) / 2));
 
     return add(&tmp2, &tmp3);
