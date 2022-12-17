@@ -25,7 +25,7 @@ vec2 initial_planet_position(planet_t A, system_t SysA){
     vec2 r_perp;
     r_perp.x = -A.pos.y;
     r_perp.y = A.pos.x;
-    vec2 rp_rpn = multiplication(&r_perp, 1/norme(&r_perp));
+    vec2 rp_rpn = multiplication(&r_perp, 1/ngorme(&r_perp));
     vec2 velocity_at_t_0 = multiplication(&rp_rpn,sqrt(SysA.star.mass * G * (1+    A.orbite_planet.excentricite) / A.orbite_planet.demi_grand_axe * (1-A.orbite_planet.excentricite)));
 }
 
