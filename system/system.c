@@ -70,6 +70,7 @@ void show_system(struct gfx_context_t *ctxt, system_t *system){
     for (int i = 0; i < system->nb_planets; i++)
     {
         coordinates coord_p = scale_planets_to_screen_coordinate(system->planets[i],DEMI_GRAND_AXE_MARS);
+        printf("x= %lf, y=%lf \n", system->planets[i].pos.x, system->planets[i].pos.y);
         //printf("x = %lf, y =  %lf, mass = %lf, i = %d \n",  system->planets[i].pos.x, system->planets[i].pos.y, system->planets[i].mass, i);
         draw_full_circle(ctxt,coord_p.column,coord_p.row,system->planets[i].size,system->planets[i].color);
     }
@@ -99,8 +100,13 @@ vec2 initial_planet_position(planet_t A, system_t SysA){
     r_perp.y = A.pos.x;
     vec2 rp_rpn = multiplication(&r_perp, 1/norme(&r_perp));
     vec2 velocity_at_t_0 = multiplication(&rp_rpn,sqrt(SysA.star.mass * G * (1+    A.orbite_planet.excentricite) / A.orbite_planet.demi_grand_axe * (1-A.orbite_planet.excentricite)));
+    vec2 tmp1 =multiplication(&velocity_at_t_0, SysA.delta_t);
+    vec2 tmp2 = add(&A.pos, &tmp1);
+    vec2 force_self = force_applied_self(&A, &SysA);
+    vec2 a = division(&force_self, A.mass);
+    vec2 tmp3 = multiplication(&a, pow(SysA.delta_t, 2)/2);
 
-    return velocity_at_t_0;
+    return add(&tmp2, &tmp3);
 }
 
 /// @brief Calcule la position de la planète avec les paramètre données depuis des positions antérieur.
