@@ -25,5 +25,5 @@ typedef struct _planet
 // Those function are not mandatory to implement,
 // it's rather a hint of what you should have.
 planet_t create_planet(double mass, vec2 pos, int32_t color, orbite_t orbite, uint32_t size);
-vec2 force_applied_b_on_a(planet_t A,planet_t B, planet_t Star);
+vec2 force_applied_b_on_a(planet_t A,planet_t B);
 #endif

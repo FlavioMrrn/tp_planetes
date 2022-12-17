@@ -148,6 +148,11 @@ int main() {
 
      system_t systeme_maison = create_system(sun, 4,planetes_systemes,4000);
 
+    for (int i = 0; i < systeme_maison.nb_planets; i++)
+    {
+        systeme_maison.planets[i].pos = initial_planet_position(systeme_maison.planets[i], systeme_maison);
+    }
+    
 
     while (true)
     {
@@ -156,9 +161,9 @@ int main() {
         // TODO : draw the current state of your system
         show_system(ctxt, &systeme_maison);
         // TODO : update your system
-        update_system(&systeme_maison,4000);
+        //update_system(&systeme_maison,4000);
         
-        gfx_clear(ctxt, COLOR_BLACK);
+        //gfx_clear(ctxt, COLOR_BLACK);
         if (gfx_keypressed() == SDLK_ESCAPE)
         {
             break;

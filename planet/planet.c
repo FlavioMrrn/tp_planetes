@@ -8,14 +8,16 @@
 
 // TODO : magic
 
-vec2 force_applied_b_on_a(planet_t A, planet_t B, planet_t Star)
+vec2 force_applied_b_on_a(planet_t A, planet_t B)
 {
     vec2 AB = sub(&B.pos, &A.pos);
     printf("b = %lf, %lf \n", B.pos.x, B.pos.y);
 
     double distanceBetweenAAndB = norme(&AB);
-
-    vec2 Fba = multiplication(&AB, G * ((A.mass * B.mass) / pow(distanceBetweenAAndB, 3)));
+    double masseR = A.mass * B.mass;
+    double powNorm = pow(distanceBetweenAAndB, 3);
+    vec2 Fba = multiplication(&AB, G * (masseR / powNorm));
+    printf("fba = %lf, %lf \n", Fba.x, Fba.y);
 
 
     
