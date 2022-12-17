@@ -11,7 +11,7 @@
 vec2 force_applied_b_on_a(planet_t A, planet_t B)
 {
     vec2 AB = sub(&B.pos, &A.pos);
-    printf("b = %lf, %lf \n", B.pos.x, B.pos.y);
+    //printf("b = %lf, %lf \n", B.pos.x, B.pos.y);
 
     double distanceBetweenAAndB = norme(&AB);
     double masseR = A.mass * B.mass;

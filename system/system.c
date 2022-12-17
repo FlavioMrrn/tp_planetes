@@ -100,10 +100,15 @@ vec2 initial_planet_position(planet_t A, system_t SysA)
     vec2 r_perp;
     r_perp.x = -A.pos.y;
     r_perp.y = A.pos.x;
-    vec2 rp_rpn = multiplication(&r_perp, 1 / norme(&r_perp));
-    vec2 velocity_at_t_0 = multiplication(&rp_rpn, sqrt(SysA.star.mass * G * (1 + A.orbite_planet.excentricite) / A.orbite_planet.demi_grand_axe * (1 - A.orbite_planet.excentricite)));
+    vec2 rp_rpn = multiplication(&r_perp, 1/norme(&r_perp));
+    vec2 velocity_at_t_0 = multiplication(&rp_rpn,sqrt(SysA.star.mass * G * (1+    A.orbite_planet.excentricite) / A.orbite_planet.demi_grand_axe * (1-A.orbite_planet.excentricite)));
+    vec2 tmp1 =multiplication(&velocity_at_t_0, SysA.delta_t);
+    vec2 tmp2 = add(&A.pos, &tmp1);
+    vec2 force_self = force_applied_self(&A, &SysA);
+    vec2 a = division(&force_self, A.mass);
+    vec2 tmp3 = multiplication(&a, pow(SysA.delta_t, 2)/2);
 
-    return velocity_at_t_0;
+    return add(&tmp2, &tmp3);
 }
 
 /// @brief Calcule la position de la planète avec les paramètre données depuis des positions antérieur.
