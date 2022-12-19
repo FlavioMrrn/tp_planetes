@@ -1,3 +1,11 @@
+/**
+ * Nom : Morrone / Tayan
+ * Prénom : Flavio / Jad
+ * Date : 19.12.2022
+ * Project : Simulation de système solaire
+ * File : vec2.c
+ * Brief of file : Partie création des vecteurs et opérations mathématique avec vecteurs 
+*/
 #include "vec2.h"
 #include <math.h>
 
@@ -35,22 +43,24 @@ vec2 multiplication(vec2 *v1, double scalaire)
 
 vec2 division(vec2 *v1, double scalaire)
 {
-    vec2 v2 = {v1->x / scalaire, v1->y / scalaire};
+    vec2 v2 = {v1->x / scalaire,
+               v1->y / scalaire};
     return v2;
 }
 
 vec2 normalisation(vec2 *v1)
 {
     double normev1 = norme(v1);
-    vec2 v2 = {v1->x / normev1, v1->y / normev1};
+    vec2 v2 = {v1->x / normev1,
+               v1->y / normev1};
     return v2;
 }
 
-vec2 create_vec(double x, double y){
+vec2 create_vec(double x, double y)
+{
     vec2 v1 = {
         .x = x,
-        .y = y
-    };
+        .y = y};
     return v1;
 }
 

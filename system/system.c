@@ -1,7 +1,7 @@
 /**
  * Nom : Morrone / Tayan
  * Prénom : Flavio / Jad
- * Date : 17.12.2022
+ * Date : 19.12.2022
  * Project : Simulation de système solaire
  * File : System.c
  * Brief of file : Partie qui calcule les mouvements ainsi que la création du système
@@ -94,9 +94,7 @@ vec2 force_applied_self(planet_t *A, system_t *s)
 vec2 initial_planet_position(planet_t *A, system_t *SysA)
 {
     // Vecteur perpendiculaire
-    vec2 r_perp;
-    r_perp.x = -A->pos.y;
-    r_perp.y = A->pos.x;
+    vec2 r_perp = create_vec(-A->pos.y, A->pos.x);
     vec2 rp_rpn = division(&r_perp, norme(&r_perp));
 
     // Masse fois gravité

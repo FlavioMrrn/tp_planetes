@@ -1,3 +1,11 @@
+/**
+ * Nom : Morrone / Tayan
+ * Prénom : Flavio / Jad
+ * Date : 19.12.2022
+ * Project : Simulation de système solaire
+ * File : Planet.c
+ * Brief of file : Partie pour la partie propre au planet (force d'une planète sur une autre par exemple)
+*/
 #include "planet.h"
 #include "../vec2/vec2.h"
 

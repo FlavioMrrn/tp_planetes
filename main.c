@@ -1,3 +1,11 @@
+/**
+ * Nom : Morrone / Tayan
+ * Prénom : Flavio / Jad
+ * Date : 19.12.2022
+ * Project : Simulation de système solaire
+ * File : main.c
+ * Brief of file : fichier principal du projet (créations des planètes)
+*/
 #include "gfx/gfx.h"
 #include "vec2/vec2.h"
 #include "planet/planet.h"
@@ -84,7 +92,7 @@ int main()
     planet_t bubu = create_planet(MASS_BUBU, PERIHELIE_BUBU, START_Y_POSITION, EXCENTRICITE_BUBU, DEMI_GRAND_AXE_BUBU, PERIHELIE_BUBU, COLOR_BUBU, SIZE_BUBU);
     planet_t planetes_systemes[] = {earth, venus, mercure, mars, thanos, bubu};
     planet_t sun;
-
+    //Création du soleil et système solaire
     sun = create_planet(M_SOLEIL,START_X_POSITION_SUN, START_Y_POSITION, 0, 0, 0, COLOR_YELLOW, SIZE_SOLEIL);
     system_t systeme_maison = create_system(sun, NB_PLANETS, planetes_systemes, SYSTEM_DELTA);
 
@@ -97,10 +105,11 @@ int main()
     {
 
         gfx_present(ctxt);
+        //Supprime l'image d'avant
         gfx_clear(ctxt, COLOR_BLACK);
-        // TODO : draw the current state of your system
+        // Dessine le système
         show_system(ctxt, &systeme_maison);
-        // TODO : update your system
+        // Met a jours le systèmes (bouge les planètes)
         update_system(&systeme_maison);
 
         if (gfx_keypressed() == SDLK_ESCAPE)
@@ -109,7 +118,7 @@ int main()
         }
     }
 
-    // TODO : Free your system
+    // Libère la mémoire
     free_system(&systeme_maison);
     gfx_destroy(ctxt);
     return EXIT_SUCCESS;
