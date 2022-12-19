@@ -71,7 +71,7 @@ void show_system(struct gfx_context_t *ctxt, system_t *system)
 vec2 force_applied_self(planet_t *A, system_t *s)
 {
     // On calcul la force du soleil séparément car elle n'est pas dans le tableau de planète
-    vec2 all_force = {0, 0};
+    vec2 all_force = create_vec(0,0);
     vec2 force = force_applied_b_on_a(*A, s->star);
     all_force = add(&all_force, &force);
     // Pour chaque planète on calcul
@@ -150,11 +150,11 @@ vec2 planet_position(planet_t *A, double delta_t, system_t *p_sys)
 /// @brief Fonction qui met a jour le système solaire
 /// @param system Système solaire
 /// @param delta_t Delta de temps (en seconde)
-void update_system(system_t *system, double delta_t)
+void update_system(system_t *system)
 {
     for (uint32_t i = 0; i < system->nb_planets; i++)
     {
-        vec2 updated_pos = planet_position(&(system->planets[i]), delta_t, system);
+        vec2 updated_pos = planet_position(&(system->planets[i]), system->delta_t, system);
         system->planets[i].prec_pos = system->planets[i].pos;
         system->planets[i].pos = updated_pos;
     }

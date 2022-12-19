@@ -19,7 +19,7 @@ typedef struct vec2_t
     double x, y;
 } vec2;
 
-
+vec2 create_vec(double x, double y);
 vec2 add(vec2 *v1, vec2 *v2);
 vec2 sub(vec2 *v1, vec2 *v2);
 double dot(vec2 *v1, vec2 *v2);

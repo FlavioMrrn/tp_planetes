@@ -16,14 +16,13 @@ typedef struct _planet
     double mass;
     vec2 pos;      // x(t)
     vec2 prec_pos; // x(t - dt)
-    int color;
+    int color;  // Couleur de la planète
     vec2 acceleration;
     orbite_t orbite_planet;
     uint32_t size;
 } planet_t;
 
-// Those function are not mandatory to implement,
-// it's rather a hint of what you should have.
-planet_t create_planet(double mass, vec2 pos, int32_t color, orbite_t orbite, uint32_t size);
+planet_t create_planet(double mass, double posX, double posY, double excentricite, double demi_grand_axe, double perihelie, int32_t color, uint32_t size);
+orbite_t create_orbite(double demi_grand_axe, double perihelie, double excentricite);
 vec2 force_applied_b_on_a(planet_t A,planet_t B);
 #endif

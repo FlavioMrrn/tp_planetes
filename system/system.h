@@ -17,7 +17,7 @@ system_t create_system(planet_t star, uint32_t nb_planets, planet_t planetes[], 
 void show_system(struct gfx_context_t *ctxt, system_t *system);
 vec2 force_applied_self(planet_t *A, system_t *system);
 void show_system(struct gfx_context_t *ctxt, system_t *system);
-void update_system(system_t *system, double delta_t);
+void update_system(system_t *system);
 void free_system(system_t *system);
 coordinates scale_planets_to_screen_coordinate(planet_t planet, double sma);
 vec2 force_applied_self(planet_t *A, system_t *s);

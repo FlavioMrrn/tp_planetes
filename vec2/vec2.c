@@ -46,6 +46,14 @@ vec2 normalisation(vec2 *v1)
     return v2;
 }
 
+vec2 create_vec(double x, double y){
+    vec2 v1 = {
+        .x = x,
+        .y = y
+    };
+    return v1;
+}
+
 /// @brief Calcul les coordonnées sur l'écran d'un vecteur donné (x et y [-1;1]).
 /// @param v vecteur
 /// @param width longueur de l'écran
