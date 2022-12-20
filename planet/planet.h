@@ -13,13 +13,13 @@ typedef struct _orbite
 
 typedef struct _planet
 {
-    double mass;
+    double mass;    // Masse de la planète
     vec2 pos;      // x(t)
     vec2 prec_pos; // x(t - dt)
     int color;  // Couleur de la planète
-    vec2 acceleration;
-    orbite_t orbite_planet;
-    uint32_t size;
+    vec2 acceleration; // Accélération de la planète
+    orbite_t orbite_planet; // Son orbite
+    uint32_t size; // Rayon de la planète en pixel
 } planet_t;
 
 planet_t create_planet(double mass, double posX, double posY, double excentricite, double demi_grand_axe, double perihelie, int32_t color, uint32_t size);

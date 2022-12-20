@@ -162,6 +162,7 @@ void update_system(system_t *system)
 /// @param system Système solaire
 void free_system(system_t *system)
 {
+    //Met les variables à une valeur impossible
     system->delta_t = -1;
     system->nb_planets = -1;
     system->planets = NULL;
