@@ -12,7 +12,6 @@
 #include <stdlib.h>
 
 #define G 6.67e-11
-#define M_SOLEIL 1.989e30
 
 /// @brief Formule de force d'une planète b sur une planète a
 /// @param A Planète
