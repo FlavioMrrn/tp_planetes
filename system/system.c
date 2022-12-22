@@ -9,14 +9,6 @@
 
 #include "system.h"
 
-#define SCREEN_WIDTH 1000
-#define SCREEN_HEIGHT 1000
-
-
-#define DEMI_GRAND_AXE_MARS 2.27944e11
-#define G 6.67e-11
-#define M_SOLEIL 1.989e30
-
 /// @brief Fonction qui créer le système solaire
 /// @param star L'étoile de notre système solaire
 /// @param nb_planets Le nombre de planète dans notre système

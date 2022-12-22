@@ -16,6 +16,7 @@
 #define MAGENTA 0xFF0099
 #define CYAN 0x00FFFF
 
+#define G 6.67e-11
 #define M_SOLEIL 1.989e30
 #define SIZE_SOLEIL 50
 
