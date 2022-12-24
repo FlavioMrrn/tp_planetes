@@ -1,3 +1,11 @@
+/**
+ * Nom : Morrone / Tayan
+ * Prénom : Flavio / Jad
+ * Date : 24.12.2022
+ * Project : Simulation de système solaire
+ * File : planet.h
+ * Brief of file : Header les fonctionnalités et structures de la planète
+*/
 #ifndef _PLANET_H_
 #define _PLANET_H_
 

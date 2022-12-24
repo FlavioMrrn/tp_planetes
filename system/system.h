@@ -1,3 +1,11 @@
+/**
+ * Nom : Morrone / Tayan
+ * Prénom : Flavio / Jad
+ * Date : 24.12.2022
+ * Project : Simulation de système solaire
+ * File : System.h
+ * Brief of file : Header qui indique les fonctionnalités et constantes liés aux systèmes
+*/
 #ifndef _SYSTEMP_
 #define _SYSTEMP_
 
